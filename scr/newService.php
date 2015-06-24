@@ -146,21 +146,13 @@
                     <p  class="col-xs-2 control-label">E-mail</p>
 
                     <div class="col-sm-4 col-xs-4">
-                        <input type="text" class="form-control" name="r_email" id="r_email"
+                        <input type="email" class="form-control" name="r_email" id="r_email"
                                placeholder="email" required="true">
                     </div>
                 </div>
-                <script type="javascript">
-                    function validate(){
-                        for (var i=0;i<document.forms['service_form'].length;i++){
-                            var field = (document.forms['service_form'][i]);
-                            if (field.value=="" || field.value==null || field.value==field.pla)
-                        }
-                    }
-                </script>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" name="newService" class="btn btn-primary" onsubmit="validate()">Εισαγωγή</button>
+                        <button type="submit" name="newService" class="btn btn-primary">Εισαγωγή</button>
                     </div>
                 </div>
 
