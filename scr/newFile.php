@@ -13,8 +13,12 @@
     <link href="../css/navbar.css" rel="stylesheet">
     <link href="../css/globalShadowBoxStyle.css" rel="stylesheet">
 
-    <?php include('includes/header.php');
-    include('includes/navbar.php');
+    <?php
+        global $link;
+        include ('includes/connect.php');
+        include('includes/header.php');
+        include('includes/navbar.php');
+        include_once('includes/ArizFun.php');
     ?>
 
 
@@ -44,98 +48,86 @@
             <form class="form-horizontal" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <p for="hotelName" class="col-xs-2 control-label">Δημηουργός</p>
+                    <p class="col-xs-2 control-label">Δημηουργός</p>
 
                     <div class="col-sm-4 col-xs-4">
-                        <input type="text" class="form-control" name="hotelName" id="file_creator"
-                               placeholder="Όνομα Δημηουργού">
+                        <input type="text" class="form-control" name="creator" id="creator"
+                               placeholder="Όνομα Δημηουργού" required="true">
                     </div>
                 </div>
                 <div class="form-group">
-                    <p for="hotelName" class="col-xs-2 control-label">Τίτλος Εγγράφου</p>
+                    <p class="col-xs-2 control-label">Τίτλος Εγγράφου</p>
 
                     <div class="col-sm-4 col-xs-4">
-                        <input type="text" class="form-control" name="hotelName" id="file_title"
-                               placeholder="Τίτλος">
+                        <input type="text" class="form-control" name="title" id="title"
+                               placeholder="Τίτλος" required="true">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <p for="hotelName" class="col-xs-2 control-label">Αρμόδια Επιχείρηση</p>
+                    <p class="col-xs-2 control-label">Αρμόδια Επιχείρηση</p>
                     <!-- εδω θα μπει με δροπδουν ολες οι επιχειρήσεις που είναι μεσα στο σύστημα-->
 
                     <div class="col-sm-4">
                         <select class="form-control" name="service_name">
                             <!-- εδω θα μπει με δροπδουν ολες οι επιχειρήσεις που είναι μεσα στο σύστημα-->
+                            <?php
+                                $result = select_all_services($link);
+                                echo_services_in_html_option($result);
+                            ?>
                         </select>
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    <p for="hotelName" class="col-xs-2 control-label">Θέμα</p>
+                    <p class="col-xs-2 control-label">Θέμα</p>
 
                     <div class="col-sm-4">
-                            <textarea name="longDesc" class="form-control user_input" id="file_subject"
-                                      rows="3"
-                                      placeholder=" Θέμα"></textarea>
+                        <textarea name="subject" class="form-control user_input" id="subject"
+                                  rows="3"
+                                  placeholder=" Θέμα" required="true"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <p for="hotelName" class="col-xs-2 control-label">Περιγραφή</p>
+                    <p class="col-xs-2 control-label">Περιγραφή</p>
 
                     <div class="col-sm-4">
-                            <textarea name="longDesc" class="form-control user_input" id="file_subject"
-                                      rows="3"
-                                      placeholder="Λίγα λόγια για τα έγγραφα"></textarea>
+                        <textarea name="description" class="form-control user_input" id="description"
+                                  rows="3"
+                                  placeholder="Λίγα λόγια για τα έγγραφα" required="true"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <p for="hotelName" class="col-xs-2 control-label">Αριθμός Συντελεστών</p>
-
-
-                    <div class="col-sm-4">
-                        <select class="form-control" name="service_name">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-
+                    <p class="col-xs-2 control-label">Αριθμός Συντελεστών</p>
                 </div>
                 <div class="form-group">
-                    <p for="hotelName" class="col-xs-2 control-label">Όνομα-Επώνυμο Συντελεστών</p>
+                    <p class="col-xs-2 control-label">Όνομα-Επώνυμο Συντελεστών</p>
 
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="hotelName" id="file_creator"
-                               placeholder="analoga me ta onomata tha emfanizontai antistoixa pedia">
+                               placeholder="analoga me ta onomata tha emfanizontai antistoixa pedia" required="true">
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    <p for="hotelName" class="col-xs-2 control-label">Τύπος Εγγράφου</p>
-
+                    <p class="col-xs-2 control-label">Τύπος Εγγράφου</p>
 
                     <div class="col-sm-4">
                         <select class="form-control" name="service_type">
                             <option>Εικόνα</option>
                             <option>Αρχείο PDF</option>
-
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <p for="hotelPhotosInput">Φωτογραφία</p>
+                    <p></p>
 
                     <div class="col-sm-4">
-                        <input type="file" name="image" id="hotelPhotosInput">
+                        <input type="file" name="select_file" id="select_file">
                     </div>
                 </div>
-
-
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" name="newFile" class="btn btn-primary">Εισαγωγή</button>
@@ -158,6 +150,8 @@
 </html>
 
 
+<?php
 
+?>
 
 

@@ -37,3 +37,20 @@ function check_if_service_exists($link,$service_name){
         return false;
     }
 }
+
+function select_all_services($link){
+    $sql = "SELECT * from services";
+    $result = mysqli_query($link,$sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+    if ($count >= 1) {
+        return $result;
+    } else {
+        return null;
+    }
+}
+
+function echo_services_in_html_option($result){
+    while($row = mysqli_fetch_assoc($result)){
+        echo '<option>'.$row['service_name'].'</option>';
+    }
+}
