@@ -14,12 +14,12 @@
  * $current_file_name = zitame ap ton server na epistrepsei to current page
  *
  * */
-/*function echoSelectedClassForCurrentPage($requestLinkPage)
+function echoSelectedClassForCurrentPage($requestLinkPage)
 {
     $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
     if ($current_file_name == $requestLinkPage)
         echo 'class="active"';
-}*/
+}
 
 
 /**

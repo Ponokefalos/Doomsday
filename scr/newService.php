@@ -174,20 +174,18 @@ include_once('includes/ArizFun.php');
 global $link;
 include ('includes/connect.php');
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['newService'])){
-    $error_state = 0;
-    $error_msg = "Παρακαλώ συμπληρώστε κατάλληλα όλα τα πεδία:";
-
-    $service_name = isset($_POST['service_name'])?$link->real_escape_string($_POST['service_name']):$error_msg.="\nΌνομα Υπηρεσίας";
-    $service_type = isset($_POST['service_type'])?$link->real_escape_string($_POST['service_type']):$error_msg.="\nΤύπος Υπηρεσίας";
-    $website = isset($_POST['website'])?$link->real_escape_string($_POST['website']):$error_msg.="\nWebsite Υπηρεσίας";
-    $description = isset($_POST['description'])?$link->real_escape_string($_POST['description']):$error_msg.="\nΠεριγραφή Υπηρεσίας";
-    $doy = isset($_POST['doy'])?$link->real_escape_string($_POST['doy']):$error_msg.="\nΔΟΥ";
-    $nomos = isset($_POST['nomos'])?$link->real_escape_string($_POST['nomos']):$error_msg.="\nΝομός";
-    $city = isset($_POST['city'])?$link->real_escape_string($_POST['city']):$error_msg.="\nΠόλη";
-    $r_name = isset($_POST['r_name'])?$link->real_escape_string($_POST['r_name']):$error_msg.="\nΌνομα Αντιπροσώπου";
-    $r_surname = isset($_POST['r_surname'])?$link->real_escape_string($_POST['r_surname']):$error_msg.="\nΕπίθετο Υπηρεσίας";
-    $r_tel = isset($_POST['r_tel'])?$link->real_escape_string($_POST['r_tel']):$error_msg.="\nΤηλέφωνο Υπηρεσίας";
-    $r_email = isset($_POST['r_email'])?$link->real_escape_string($_POST['r_email']):$error_msg.="\nemail";
+  
+    $service_name = $link->real_escape_string($_POST['service_name']);
+    $service_type = $link->real_escape_string($_POST['service_type']);
+    $website = $link->real_escape_string($_POST['website']);
+    $description = $link->real_escape_string($_POST['description']);
+    $doy = $link->real_escape_string($_POST['doy']);
+    $nomos = $link->real_escape_string($_POST['nomos']);
+    $city = $link->real_escape_string($_POST['city']);
+    $r_name = $link->real_escape_string($_POST['r_name']);
+    $r_surname = $link->real_escape_string($_POST['r_surname']);
+    $r_tel = $link->real_escape_string($_POST['r_tel']);
+    $r_email = $link->real_escape_string($_POST['r_email']);
 
        if ( saveServiceOnDB($link,$service_name,$service_type,$website,$description,
             $doy,$nomos,$city,$r_name,$r_surname,$r_tel,$r_email)){
