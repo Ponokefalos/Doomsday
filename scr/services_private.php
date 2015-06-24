@@ -1,3 +1,11 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Kir
+ * Date: 24/6/2015
+ * Time: 1:15 μμ
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,11 +38,8 @@
     <div class="head_title">
         <p>
 
-        <div class="addNewElement">
-            <button onclick="location.href ='newFile.php' " ; type="submit" class="btn btn-primary">+ Προσθήκη Εγγράφων
-            </button>
-        </div>
-        <h3><i>Έγγραφα Υπηρεσιών</i></h3></p>
+
+        <h3><i>Υπηρεσίες Ιδιωτικού Τομέα</i></h3></p>
         <hr class="featurette-divider">
 
     </div>
@@ -66,6 +71,27 @@
         </form>
 
 
+    </div>
+
+    <div>
+        <table class="table table-hover">
+            <tr>
+                <th>Όνομα Υπηρεσίας</th>
+                <th>Τύπος</th>
+                <th>Όνομα Αντιπροσώπου</th>
+                <th>Website</th>
+                <th>Ημερομηνία Εισαγωγής</th>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
     </div>
     <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br>
     <br><br><br>

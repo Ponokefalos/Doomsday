@@ -31,7 +31,7 @@
         <p>
 
         <div class="addNewElement">
-            <button onclick="location.href ='newService.php' " ; type="submit" class="btn btn-primary">+ Νέα Επιχείρηση
+            <button onclick="location.href ='newService.php' " ; type="submit" class="btn btn-primary">+ Νέα Υπηρεσία
             </button>
         </div>
         <h3><i>Υπηρησίες</i></h3></p>
@@ -64,20 +64,20 @@
                 <p>Επιλέξτε έναν από τους παρακάτω τύπους επιχειρήσεων</p>
 
                 <div class="col-md-3">
-                    <a href="InoVillageHotelStatic.php">
+                    <a href="services_university.php">
                         <img src="http://www.foititikanea.gr/images/foithtikanea/PANEPISTHMIA/AIGAIOY/4.jpeg">
 
                         <p class="HotelName">Πανεπιστημιακοί Φορείς</p></a>
                 </div>
                 <div class="col-md-3">
-                    <a href="InoVillageHotelStatic.php">
+                    <a href="services_private.php">
                         <img
                             src="http://www.amiglobalmarket.com/wp-content/uploads/2014/06/Business_presentation_byVectorOpenStock.jpg">
 
                         <p class="HotelName">Ιδιοτικές Επιχειρήσεις</p></a>
                 </div>
                 <div class="col-md-3">
-                    <a href="HotelNefeliStatic.php">
+                    <a href="services_public.php">
                         <img
                             src="http://www.newsrebel.gr/wp-content/uploads/2015/04/e8d981657a1ebb2e14cce763c5ca462d.jpg">
 
