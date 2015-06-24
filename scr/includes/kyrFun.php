@@ -14,12 +14,12 @@
  * $current_file_name = zitame ap ton server na epistrepsei to current page
  *
  * */
-/*function echoSelectedClassForCurrentPage($requestLinkPage)
+function echoSelectedClassForCurrentPage($requestLinkPage)
 {
     $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
     if ($current_file_name == $requestLinkPage)
         echo 'class="active"';
-}*/
+}
 
 
 /**
@@ -29,8 +29,8 @@
 
 function return_Total_Number_Of_Services($link)
 {
-    $query = "select services_id from services";
-    $result = mysql_query($link, $query) or die (mysqli_error($link));
+    $query = "select service_id from services";
+    $result = mysqli_query($link, $query) or die (mysqli_error($link));
     $count = mysqli_num_rows($result);
     return $count;
 }
@@ -38,7 +38,7 @@ function return_Total_Number_Of_Services($link)
 function return_Total_Number_Of_Files($link)
 {
     $query = "select file_id from files";
-    $result = mysql_query($link, $query) or die (mysqli_error($link));
+    $result = mysqli_query($link, $query) or die (mysqli_error($link));
     $count = mysqli_num_rows($result);
     return $count;
 }
@@ -46,7 +46,7 @@ function return_Total_Number_Of_Files($link)
 function return_Total_Number_Of_Users($link)
 {
     $query = "select user_id from users";
-    $result = mysql_query($link, $query) or die (mysqli_error($link));
+    $result = mysqli_query($link, $query) or die (mysqli_error($link));
     $count = mysqli_num_rows($result);
     return $count;
 }

@@ -5,8 +5,8 @@
  * Date: 21/6/2015
  * Time: 10:55 μμ
  */
-include ('includes/kyrFun.php');
-include ('RegisterConnectToDB.php');
+global $link;
+include ('includes/connect.php');
 include('includes/header.php');
 include('includes/navbar.php');
 
