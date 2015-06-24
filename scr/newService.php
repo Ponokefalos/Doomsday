@@ -187,13 +187,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['newService'])){
     $r_tel = $link->real_escape_string($_POST['r_tel']);
     $r_email = $link->real_escape_string($_POST['r_email']);
 
-       if ( saveServiceOnDB($link,$service_name,$service_type,$website,$description,
-            $doy,$nomos,$city,$r_name,$r_surname,$r_tel,$r_email)){
-           showAlertDialog("Success.");
-       }else{
-           showAlertDialog("DB Error.");
-       }
-
+    if (check_if_service_exists($link,$service_name)){
+        showAlertDialog("Service already exists. Please select a different service name.");
+    }else {
+        if (saveServiceOnDB($link, $service_name, $service_type, $website, $description,
+            $doy, $nomos, $city, $r_name, $r_surname, $r_tel, $r_email)) {
+            showAlertDialog("Success.");
+        } else {
+            showAlertDialog("DB Error.");
+        }
+    }
 }
 ?>
 
