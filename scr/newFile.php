@@ -217,8 +217,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
          $service_id = get_service_id_by_name($link,$service_name);
          if ($service_id!=null) {
              $file = manage_files($creator,$title);
+             $date = date("Y-n-d");
              if (saveFileOnDB($link,$creator,$title,$service_id,$subject,
-                 $description,$c_list,$file)) {
+                 $description,$c_list,$file,$date)) {
                  showAlertDialog("Success.");
              }else {
                  showAlertDialog("DB Error.");

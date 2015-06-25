@@ -66,11 +66,11 @@ function echo_services_in_html_option($result){
 }
 
 function saveFileOnDB($link,$creator,$title,$service_id,$subject,
-                         $description,$c_list,$file){
+                         $description,$c_list,$file,$date){
     $sql = "insert into files (creator,title,service_id,subject,
-                         description,file)
+                         description,file,date)
                          values ('$creator','$title','$service_id','$subject',
-                         '$description','$file')";
+                         '$description','$file','$date')";
 
     if ($link->query($sql)===TRUE) {
         $sql = "select file_id from files where title='$title' AND creator='$creator'";
@@ -116,5 +116,16 @@ function check_if_file_exists($link,$title2,$creator2){
         return true;
     } else {
         return false;
+    }
+}
+
+function select_all_files($link){
+    $sql = "SELECT * from files";
+    $result = mysqli_query($link,$sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+    if ($count >= 1) {
+        return $result;
+    } else {
+        return null;
     }
 }
