@@ -14,11 +14,11 @@
     <link href="../css/globalShadowBoxStyle.css" rel="stylesheet">
 
     <?php
-        global $link;
-        include ('includes/connect.php');
         include('includes/header.php');
         include('includes/navbar.php');
-        include_once('includes/ArizFun.php');
+        include('includes/ArizFun.php');
+        global $link;
+        include ('includes/connect.php');
     ?>
 
 
@@ -45,14 +45,14 @@
 
     <div class="row">
         <div class="col-xs-12" id="auctionFormLabels">
-            <form class="form-horizontal" method="post" enctype="multipart/form-data">
+            <form name="file_form" class="form-horizontal" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <p class="col-xs-2 control-label">Δημηουργός</p>
 
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="creator" id="creator"
-                               placeholder="Όνομα Δημηουργού" required="true">
+                               placeholder="Όνομα Δημηουργού" required="true" value="creator">
                     </div>
                 </div>
                 <div class="form-group">
@@ -60,7 +60,7 @@
 
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="title" id="title"
-                               placeholder="Τίτλος" required="true">
+                               placeholder="Τίτλος"  value="titlos" required="true">
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@
                     <div class="col-sm-4">
                         <textarea name="subject" class="form-control user_input" id="subject"
                                   rows="3"
-                                  placeholder=" Θέμα" required="true"></textarea>
+                                  <!--placeholder=" Θέμα"-->  required="true">subject</textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -95,18 +95,15 @@
                     <div class="col-sm-4">
                         <textarea name="description" class="form-control user_input" id="description"
                                   rows="3"
-                                  placeholder="Λίγα λόγια για τα έγγραφα" required="true"></textarea>
+                                 <!-- placeholder="Λίγα λόγια για τα έγγραφα"-->  required="true">description</textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <p class="col-xs-2 control-label">Αριθμός Συντελεστών</p>
-                </div>
-                <div class="form-group">
-                    <p class="col-xs-2 control-label">Όνομα-Επώνυμο Συντελεστών</p>
+                    <p class="col-xs-2 control-label">Email Συντελεστών</p>
 
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="hotelName" id="file_creator"
-                               placeholder="analoga me ta onomata tha emfanizontai antistoixa pedia" required="true">
+                        <input type="text" class="form-control" name="c_list" id="c_list"
+                               placeholder="analoga me ta onomata tha emfanizontai antistoixa pedia" value="qwre@qwer.com" required="true">
                     </div>
                 </div>
 
@@ -125,12 +122,12 @@
                     <p></p>
 
                     <div class="col-sm-4">
-                        <input type="file" name="select_file" id="select_file">
+                        <input type="file" name="files[]" multiple="multiple">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" name="newFile" class="btn btn-primary">Εισαγωγή</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Εισαγωγή</button>
                     </div>
                 </div>
 
@@ -152,6 +149,69 @@
 
 <?php
 
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
+    showAlertDialog("in post");
+/*
+    $creator = $link->real_escape_string($_POST['creator']);
+    $title = $link->real_escape_string($_POST['title']);
+    $service_name = $link->real_escape_string($_POST['service_name']);
+    $subject = $link->real_escape_string($_POST['subject']);
+    $description = $link->real_escape_string($_POST['description']);
+    $c_list = $link->real_escape_string($_POST['c_list']);
+
+
+     //upload to database
+     if (check_if_file_exists($link,$title,$creator)){
+         showAlertDialog("File already exists. Please select a different title.");
+     }else {
+         $service_id = get_service_id_by_name($link,$service_name);
+         if ($service_id!=null) {
+             if (saveFileOnDB($link,$creator,$title,$service_id,$subject,
+                 $description,$c_list)) {
+                 showAlertDialog("Success.");
+             }else {
+                 showAlertDialog("DB Error.");
+             }
+         }else{
+             showAlertDialog("Service id not found.");
+         }
+     }
+    */
+
+    //manage files
+
+    $valid_formats = array("jpg", "png", "gif", "zip", "bmp","pdf");
+    $max_file_size = 1024*1024*1; //30 mb
+    $path = "uploads/"; // Upload directory
+    $count = 0;
+
+    foreach ($_FILES['files']['name'] as $f => $name) {
+        if ($_FILES['files']['error'][$f] == 4) {
+            continue; // Skip file if any error found
+        }
+        if ($_FILES['files']['error'][$f] == 0) {
+            if ($_FILES['files']['size'][$f] > $max_file_size) {
+                showAlertDialog("$name is too large!.");
+                continue; // Skip large files
+            }
+            elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats) ){
+                showAlertDialog("$name is not a valid format");
+                continue; // Skip invalid file formats
+            }
+            else{ // No error found! Move uploaded files
+                if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path.$name)) {
+                    $count++; // Number of successfully uploaded files
+                }
+            }
+        }
+    }
+
+    
+
+}
 ?>
 
 
