@@ -66,20 +66,22 @@ function echo_services_in_html_option($result){
 }
 
 function saveFileOnDB($link,$creator,$title,$service_id,$subject,
-                         $description,$c_list){
+                         $description,$c_list,$file){
     $sql = "insert into files (creator,title,service_id,subject,
-                         description)
+                         description,file)
                          values ('$creator','$title','$service_id','$subject',
-                         '$description')";
+                         '$description','$file')";
 
     if ($link->query($sql)===TRUE) {
-       /* $sql = "select file_id from files where title=$title AND creator=$creator";
+        $sql = "select file_id from files where title='$title' AND creator='$creator'";
         $result = $link->query($sql);
-        $row = mysqli_fetch_assoc($result);
-        $file_id= $row['file_id'];
-        echo $file_id;
-        insert_contributions($link,$c_list,$file_id);*/
-        return true;
+        if (mysqli_num_rows($result)>=1) {
+            $row = mysqli_fetch_assoc($result);
+            $file_id = $row['file_id'];
+            echo $file_id;
+            insert_contributions($link, $c_list, $file_id);
+            return true;
+        }
     }else{
         return false;
     }
@@ -91,7 +93,7 @@ function insert_contributions($link,$string,$file_id){
     $pattern = '/\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}\b/';
     preg_match_all($pattern, $string,$matches);
     //print_r($matches);
-    $sql = "";
+
     foreach ($matches[0] as $email){
         $sql = "INSERT INTO contributions(con_email, file_id)
                                 VALUES ('$email','$file_id')";

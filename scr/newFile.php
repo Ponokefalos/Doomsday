@@ -154,13 +154,60 @@
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
     showAlertDialog("in post");
-/*
+
     $creator = $link->real_escape_string($_POST['creator']);
     $title = $link->real_escape_string($_POST['title']);
     $service_name = $link->real_escape_string($_POST['service_name']);
     $subject = $link->real_escape_string($_POST['subject']);
     $description = $link->real_escape_string($_POST['description']);
     $c_list = $link->real_escape_string($_POST['c_list']);
+
+    //manage files
+    function manage_files($creator,$title)
+    {
+        $valid_formats = array("jpg", "png", "gif", "zip", "bmp", "pdf");
+        $max_file_size = 1024 * 1024 * 1; //30 mb
+        $path = "uploads/"; // Upload directory
+        $count = 0;
+
+        $zip = new ZipArchive();
+        $filename = $path . "files_" . $creator . "_" . $title . ".zip";
+
+        if ($zip->open($filename, ZipArchive::CREATE) !== TRUE) {
+            exit("cannot open <$filename>\n");
+        }
+
+        foreach ($_FILES['files']['name'] as $f => $name) {
+            if ($_FILES['files']['error'][$f] == 4) {
+                continue; // Skip file if any error found
+            }
+            if ($_FILES['files']['error'][$f] == 0) {
+                if ($_FILES['files']['size'][$f] > $max_file_size) {
+                    showAlertDialog("$name is too large!.");
+                    continue; // Skip large files
+                } elseif (!in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats)) {
+                    showAlertDialog("$name is not a valid format");
+                    continue; // Skip invalid file formats
+                } else { // No error found! Add files to zip
+                    if (move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path . $name)) {
+                        $zip->addFile($path . $name, $name);
+                        echo "numfiles: " . $zip->numFiles . "\n";
+                        echo "status:" . $zip->status . "\n";
+                        $count++; // Number of successfully archived files
+
+                    }
+
+                }
+            }
+        }
+        $zip->close();
+
+        //delete files
+        foreach ($_FILES['files']['name'] as $f => $name) {
+            unlink($path . $name);
+        }
+        return $filename;
+    }
 
 
      //upload to database
@@ -169,8 +216,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
      }else {
          $service_id = get_service_id_by_name($link,$service_name);
          if ($service_id!=null) {
+             $file = manage_files($creator,$title);
              if (saveFileOnDB($link,$creator,$title,$service_id,$subject,
-                 $description,$c_list)) {
+                 $description,$c_list,$file)) {
                  showAlertDialog("Success.");
              }else {
                  showAlertDialog("DB Error.");
@@ -179,37 +227,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
              showAlertDialog("Service id not found.");
          }
      }
-    */
 
-    //manage files
 
-    $valid_formats = array("jpg", "png", "gif", "zip", "bmp","pdf");
-    $max_file_size = 1024*1024*1; //30 mb
-    $path = "uploads/"; // Upload directory
-    $count = 0;
-
-    foreach ($_FILES['files']['name'] as $f => $name) {
-        if ($_FILES['files']['error'][$f] == 4) {
-            continue; // Skip file if any error found
-        }
-        if ($_FILES['files']['error'][$f] == 0) {
-            if ($_FILES['files']['size'][$f] > $max_file_size) {
-                showAlertDialog("$name is too large!.");
-                continue; // Skip large files
-            }
-            elseif( ! in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats) ){
-                showAlertDialog("$name is not a valid format");
-                continue; // Skip invalid file formats
-            }
-            else{ // No error found! Move uploaded files
-                if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path.$name)) {
-                    $count++; // Number of successfully uploaded files
-                }
-            }
-        }
-    }
-
-    
 
 }
 ?>
