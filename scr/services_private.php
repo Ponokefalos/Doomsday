@@ -73,26 +73,10 @@
 
     </div>
 
-    <div>
-        <table class="table table-hover">
-            <tr>
-                <th>Όνομα Υπηρεσίας</th>
-                <th>Τύπος</th>
-                <th>Όνομα Αντιπροσώπου</th>
-                <th>Website</th>
-                <th>Ημερομηνία Εισαγωγής</th>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-    </div>
+    <?php include('includes/services_table.php')?>
+
+
+
     <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br>
     <br><br><br>
 

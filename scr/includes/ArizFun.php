@@ -14,11 +14,11 @@ function showAlertDialog($warningText)
 }
 
 function saveServiceOnDB($link,$service_name,$service_type,$website,$description,
-                         $doy,$nomos,$city,$r_name,$r_surname,$r_tel,$r_email){
+                         $doy,$nomos,$city,$r_name,$r_surname,$r_tel,$r_email,$date){
     $sql = "insert into services (service_name,service_type,website,description,
-                         doy,nomos,city,r_name,r_surname,r_tel,r_email)
+                         doy,nomos,city,r_name,r_surname,r_tel,r_email,date)
                          values ('$service_name','$service_type','$website','$description',
-                         '$doy','$nomos','$city','$r_name','$r_surname','$r_tel','$r_email')";
+                         '$doy','$nomos','$city','$r_name','$r_surname','$r_tel','$r_email','$date')";
 
     if ($link->query($sql)===TRUE) {
         return true;

@@ -5,6 +5,7 @@
  * Date: 24/6/2015
  * Time: 1:15 μμ
  */
+include ('includes/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,26 +67,7 @@
         </form>
     </div>
 
-    <div>
-        <table class="table table-hover">
-           <tr>
-               <th>Όνομα Υπηρεσίας</th>
-               <th>Τύπος</th>
-               <th>Όνομα Αντιπροσώπου</th>
-               <th>Website</th>
-               <th>Ημερομηνία Εισαγωγής</th>
-           </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-    </div>
+   <?php include('includes/services_table.php')?>
 
 
 

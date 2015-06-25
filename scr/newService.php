@@ -56,9 +56,9 @@
 
                     <div class="col-sm-4">
                         <select class="form-control" name="service_type">
-                            <option>Δημόσιου Τομέα</option>
-                            <option>Ιδιοτικού Τομέα</option>
-                            <option>Πανεπιστιμιακός Φορέας</option>
+                            <option>Δημόσιος Τομέας</option>
+                            <option>Ιδιωτικός Τομέας</option>
+                            <option>Πανεπιστημιακός Φορέας</option>
 
                         </select>
                     </div>
@@ -69,7 +69,7 @@
 
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="website" id="website"
-                               placeholder="Όνομα" required="true">
+                               placeholder="www.example.com" required="true">
                     </div>
                 </div>
 
@@ -109,7 +109,7 @@
 
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="city" id="city"
-                               placeholder="Όνομα" required="true">
+                               placeholder="π.χ Θεσσαλονίκη" required="true">
                     </div>
                 </div>
 
@@ -187,11 +187,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['newService'])){
     $r_tel = $link->real_escape_string($_POST['r_tel']);
     $r_email = $link->real_escape_string($_POST['r_email']);
 
+    $date = getCurrentDate();
     if (check_if_service_exists($link,$service_name)){
         showAlertDialog("Service already exists. Please select a different service name.");
     }else {
         if (saveServiceOnDB($link, $service_name, $service_type, $website, $description,
-            $doy, $nomos, $city, $r_name, $r_surname, $r_tel, $r_email)) {
+            $doy, $nomos, $city, $r_name, $r_surname, $r_tel, $r_email,$date)) {
             showAlertDialog("Success.");
         } else {
             showAlertDialog("DB Error.");

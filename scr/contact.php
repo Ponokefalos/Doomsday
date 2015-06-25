@@ -45,7 +45,7 @@
             <p class="col-xs-2 control-label">E-mail</p>
 
             <div class="col-sm-4 col-xs-4">
-                <input type="text" class="form-control" name="creator" id="creator"
+                <input type="email" class="form-control" name="creator" id="creator"
                        placeholder="mail επικοινωνίας" required="true">
             </div>
         </div>

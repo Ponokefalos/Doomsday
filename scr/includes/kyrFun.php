@@ -56,4 +56,46 @@ function getCurrentDate()
     return date("Y/m/d");
 }
 
+/**
+ *epistrefei oles tis plirofies pou xeiazomaste gia tin emfanisi twn yphresiwn
+ *onoma Yphresias
+ * website
+ * onoma-epitheto Antiproswpou
+ * Hmerominia Eisagwgis tis Yphresias sto Systima
+ */
+function returnt_Info_To_Show_On_Tables($link)
+{
+
+}
+
+function return_Service_Given_Type($link, $service_type)
+{
+    $query = "select * from services where service_type='$service_type'";
+    $result = mysqli_query($link, $query);
+    $count = mysqli_num_rows($result);
+
+    if ($count > 0) {
+        return $result;
+    } else {
+        echo 'There are no entries in DB KF';
+    }
+}
+
+function return_Number_Of_Services_Given_Type($link, $service_type)
+{
+    $query = "select * from services where service_type='$service_type'";
+    $result = mysqli_query($link, $query);
+    $count = mysqli_num_rows($result);
+
+    if ($count > 0) {
+        return $count;
+    } else {
+        echo '0 nums.There are no entries in DB KF';
+    }
+}
+
+function return_Service_Name_Given_Type($link){
+    $query = "select * from services where service_type='$service_type'";
+}
+
 ?>
