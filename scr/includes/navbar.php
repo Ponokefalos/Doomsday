@@ -1,4 +1,4 @@
-<?php include('kyrFun.php') ?>
+<?php include('includes/kyrFun.php') ?>
 
 <div class="container">
 <div id='cssmenu' >
