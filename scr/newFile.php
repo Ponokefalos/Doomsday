@@ -52,7 +52,7 @@
 
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="creator" id="creator"
-                               placeholder="Όνομα Δημηουργού" required="true" value="creator">
+                               placeholder="Όνομα Δημηουργού" required="true">
                     </div>
                 </div>
                 <div class="form-group">
@@ -60,7 +60,7 @@
 
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="title" id="title"
-                               placeholder="Τίτλος"  value="titlos" required="true">
+                               placeholder="Τίτλος"   required="true">
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@
                     <div class="col-sm-4">
                         <textarea name="subject" class="form-control user_input" id="subject"
                                   rows="3"
-                                  <!--placeholder=" Θέμα"-->  required="true">subject</textarea>
+                                  placeholder=" Θέμα"  required="true"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -95,7 +95,7 @@
                     <div class="col-sm-4">
                         <textarea name="description" class="form-control user_input" id="description"
                                   rows="3"
-                                 <!-- placeholder="Λίγα λόγια για τα έγγραφα"-->  required="true">description</textarea>
+                                  placeholder="Λίγα λόγια για τα έγγραφα"  required="true"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -103,23 +103,14 @@
 
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="c_list" id="c_list"
-                               placeholder="analoga me ta onomata tha emfanizontai antistoixa pedia" value="qwre@qwer.com" required="true">
+                               placeholder="πχ email1@domain.com,email2@domain.com " required="true">
                     </div>
                 </div>
 
-
                 <div class="form-group">
-                    <p class="col-xs-2 control-label">Τύπος Εγγράφου</p>
-
-                    <div class="col-sm-4">
-                        <select class="form-control" name="service_type">
-                            <option>Εικόνα</option>
-                            <option>Αρχείο PDF</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <p></p>
+                    <p>Επιτρεπώμενοι Τύποι Αρχείων: "jpg", "png", "zip", "pdf"</p>
+                    <p>Μέγιστος Αριθμός αρχείων: 20</p>
+                    <p>Μέγιστο Συνολικό Μέγεθος: 30ΜΒ</p>
 
                     <div class="col-sm-4">
                         <input type="file" name="files[]" multiple="multiple">
@@ -165,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['submit'])){
     //manage files
     function manage_files($creator,$title)
     {
-        $valid_formats = array("jpg", "png", "gif", "zip", "bmp", "pdf");
+        $valid_formats = array("jpg", "png", "zip", "pdf");
         $max_file_size = 1024 * 1024 * 1; //30 mb
         $path = "uploads/"; // Upload directory
         $count = 0;
