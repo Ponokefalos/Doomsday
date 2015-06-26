@@ -209,8 +209,8 @@ r_name LIKE '%$query%' || r_surname LIKE '%$query%' || r_tel LIKE '%$query%' || 
 
 function search_files($link,$query){
     $sql = 'SELECT * FROM files WHERE 
-creator="%'.$query.'%" ||title="%'.$query.'%" ||subject="%'.$query.'%" ||
-description="%'.$query.'%" ||date="%'.$query.'%"';
+creator LIKE "%'.$query.'%" ||title LIKE "%'.$query.'%" ||subject LIKE "%'.$query.'%" ||
+description LIKE "%'.$query.'%" ||date LIKE "%'.$query.'%"';
     $result = mysqli_query($link,$sql) or die(mysqli_error($link));
     $count = mysqli_num_rows($result);
     if ($count >= 1) {
