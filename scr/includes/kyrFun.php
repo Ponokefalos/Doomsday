@@ -94,8 +94,20 @@ function return_Number_Of_Services_Given_Type($link, $service_type)
     }
 }
 
-function return_Service_Name_Given_Type($link){
-    $query = "select * from services where service_type='$service_type'";
+function return_Service_Given_Id($link,$id){
+    $query = "select * from services where service_id='$id'";
+    $result = mysqli_query($link,$query);
+    $count = mysqli_num_rows($result);
+    if($count>0){
+        $auction = mysqli_fetch_array($result);
+        return $auction;
+    }else
+    {
+        echo 'no Services to return KF97';
+    }
+
 }
+
+
 
 ?>

@@ -45,14 +45,14 @@ global $numOfServices;
                 if ($row['service_name'] == '') {
                     echo '<td>-</td>';
                 } else {
-                    echo '<td>' . $row['service_name'] . '</td>';
+                    echo '<td><a href="viewServices.php?id='.$row['service_id'].'">' . $row['service_name'] . '</a></td>';
                 }
 
 
                 if ($row['website'] == '') {
                     echo '<td>-</td>';
                 } else {
-                    echo '<td>' . $row['website'] . '</td>';
+                    echo ' <td><a href="http://.'.$row['website'].'"</a>'.$row['website'].'</td>';
                 }
 
 
