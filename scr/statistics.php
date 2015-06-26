@@ -9,93 +9,60 @@ global $link;
 include ('includes/connect.php');
 include('includes/header.php');
 include('includes/navbar.php');
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Iris Project</title>
-
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/navbar.css" rel="stylesheet">
     <link href="../css/globalShadowBoxStyle.css" rel="stylesheet">
-
     <link href="../css/statisticsStyle.css" rel="stylesheet">
-
-
-    
-
-
 </head>
-
-
 <body>
-
 <div class="container marketing shadowStyle">
-
     <div class="head_title">
-        <p>
-
-
-        <h3><i>Στατιστηκά Στοιχεία</i></h3></p>
+        <p><h3><i>Στατιστηκά Στοιχεία</i></h3></p>
         <hr class="featurette-divider">
-
     </div>
-
     <p class="infoTxt">Παρακάτω βλέπετε μερικά στατιστηκα στοιχεία από το Σύστημα Καταχώρησης Υπηρεσιών</p>
     <br><br><br>
-
     <div class="container marketing">
         <p>Το Σύστημα Καταχώρησης Υπηρεσιών Ίριδα φιλοξενει</p>
         <br>
-
         <div class="row">
             <div class="col-xs-5">
                 <p>Συνολικός αριθμός Εγγεγραμμένων Υπηρεσιών:</p>
-
             </div>
             <div class="col-xs-5">
                 <p><?php echo return_Total_Number_Of_Services($link) ?></p>
-
             </div>
         </div>
-
-
-
         <div class="row">
             <div class="col-xs-5">
                 <p>Συνολικός αριθμός Αποθηκευμένων Εγγράφων:</p>
-
             </div>
             <div class="col-xs-5">
                 <p><?php echo return_Total_Number_Of_Files($link)?></p>
-
             </div>
         </div>
         <div class="row">
             <div class="col-xs-5">
                 <p>Συνολικός αριθμός Εγγεγραμμένων Χρηστών:</p>
-
             </div>
             <div class="col-xs-5">
                 <p><?php echo return_Total_Number_Of_Users($link)?></p>
-
             </div>
         </div>
         <div class="row">
             <div class="col-xs-9 ">
                 <p>Το σύστημα δίνει την δυνατότητα εξαγωγής των δεδομένων του σε αρχεία CSV. Επιλέξτε τα δεδομένα που
                     θέλετε από το παρακάτω μενου επιλογών</p>
-
                 <form class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="col-xs-5 form-group">
                         <select class="form-control" name="whatToExport">
@@ -110,26 +77,30 @@ include('includes/navbar.php');
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
-
-
     <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br>
     <br><br><br>
     <br><br><br>
-
-
 </div>
-
-
 <?php include('includes/footer.php') ?>
 </body>
-
-
 </html>
-
-
-
+<?php
+include_once('includes/ArizFun.php');
+    if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['export'])){
+        $data = $link->real_escape_string($_POST['whatToExport']);
+        if ($data === "Στοιχεία Υπηρεσιών"){
+            $csv = all_services_to_array($link);
+            $type = "services_";
+        }else{
+            $csv = all_files_to_array($link);
+            $type = "files_";
+        }
+        $filename = "test.csv";
+        download_send_headers($type . date("Y-m-d") . ".csv");
+        array2csv($csv);
+    }
+?>
 
 
