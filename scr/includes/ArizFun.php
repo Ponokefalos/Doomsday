@@ -129,3 +129,93 @@ function select_all_files($link){
         return null;
     }
 }
+
+function all_files_to_array($link){
+    $sql = "SELECT * from files";
+    $result = mysqli_query($link,$sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+    if ($count >= 1) {
+        while($row = $result->fetch_array())
+        {
+            $rows[] = $row;
+        }
+        return $rows;
+    } else {
+        return null;
+    }
+}
+function all_services_to_array($link){
+    $sql = "SELECT * from services";
+    $result = mysqli_query($link,$sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+    if ($count >= 1) {
+        while($row = $result->fetch_array())
+        {
+            $rows[] = $row;
+        }
+        return $rows;
+    } else {
+        return null;
+    }
+}
+
+function array2csv(array &$array){
+    if (count($array) == 0) {
+        return null;
+    }
+    ob_end_clean();
+    $df = fopen("php://output", 'w');
+    fputcsv($df, array_keys(reset($array)));
+    foreach ($array as $row) {
+        fputcsv($df, $row);
+    }
+    fclose($df);
+    exit();
+
+}
+
+
+
+    function outputCSV($data) {
+        $output = fopen("php://output", "w");
+        foreach ($data as $row) {
+            fputcsv($output, $row); // here you can change delimiter/enclosure
+        }
+        fclose($output);
+    }
+
+function download_send_headers($filename) {
+
+    header("Content-Type: text/csv; charset=utf-8");
+    header("Content-Disposition: attachment; filename=$filename");
+// Disable caching
+    header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
+    header("Pragma: no-cache"); // HTTP 1.0
+    header("Expires: 0"); // Proxies
+}
+
+function search_services($link,$query){
+    $sql = "SELECT * FROM services WHERE service_name LIKE '$query%' || service_type LIKE '%$query%' || website LIKE '%$query%' ||
+description LIKE '%$query%' || doy LIKE '%$query%' || nomos LIKE '%$query%' || city LIKE '%$query%' ||
+r_name LIKE '%$query%' || r_surname LIKE '%$query%' || r_tel LIKE '%$query%' || r_email LIKE '%$query%' || date LIKE '%$query%'";
+    $result = mysqli_query($link,$sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+    if ($count >= 1) {
+        return $result;
+    } else {
+        return null;
+    }
+}
+
+function search_files($link,$query){
+    $sql = 'SELECT * FROM files WHERE 
+creator LIKE "%'.$query.'%" ||title LIKE "%'.$query.'%" ||subject LIKE "%'.$query.'%" ||
+description LIKE "%'.$query.'%" ||date LIKE "%'.$query.'%"';
+    $result = mysqli_query($link,$sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+    if ($count >= 1) {
+        return $result;
+    } else {
+        return null;
+    }
+}
