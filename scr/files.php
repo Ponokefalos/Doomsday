@@ -67,8 +67,9 @@
 
 
     </div>
-    <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br>
-    <br><br><br>
+    <br><br><br> <br><br><br>  <br>
+
+    <?php include_once('viewFiles.php')?>
 
 
 </div>
