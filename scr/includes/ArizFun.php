@@ -171,7 +171,6 @@ function array2csv(array &$array){
     }
     fclose($df);
     exit();
-
 }
 
 
@@ -185,10 +184,8 @@ function array2csv(array &$array){
     }
 
 function download_send_headers($filename) {
-
     header("Content-Type: text/csv; charset=utf-8");
     header("Content-Disposition: attachment; filename=$filename");
-// Disable caching
     header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
     header("Pragma: no-cache"); // HTTP 1.0
     header("Expires: 0"); // Proxies

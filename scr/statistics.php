@@ -102,5 +102,3 @@ include_once('includes/ArizFun.php');
         array2csv($csv);
     }
 ?>
-
-

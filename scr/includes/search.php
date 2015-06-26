@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Iris Project</title>
-
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet">
@@ -17,7 +16,6 @@
     <form class="form-horizontal">
         <div class="form-group">
             <p>Συμπληρώστε τα παρακάτω πεδία για αναζήτηση</p>
-
             <div class="col-sm-4 col-xs-4">
                 <input type="text" class="form-control" name="search_query" id="search_query"
                        autocomplete="off" placeholder="search shit">
@@ -28,13 +26,9 @@
             <option>Services</option>
         </select>
         <div class="form-group">
-
         </div>
     </form>
-
-
         <input type="button"  onClick="myFunction()" value="gooby pls">
-
     <script >
         function myFunction() {
             var q = document.getElementById("search_query").value;
