@@ -216,3 +216,15 @@ description LIKE "%'.$query.'%" ||date LIKE "%'.$query.'%"';
         return null;
     }
 }
+
+function updateService($link,$id,$service_name,$service_type,$website,$description,
+                         $doy,$nomos,$city,$r_name,$r_surname,$r_tel,$r_email){
+    $sql = "UPDATE services SET service_name='$service_name' ,  service_type='$service_type' ,  website='$website' , description='$description'  ,  doy='$doy' ,  nomos='$nomos' ,  city='$city' ,  r_name='$r_name' ,  r_surname='$r_surname' , r_tel='$r_tel' ,  r_email='$r_email' WHERE service_id='$id'";
+    
+    $link->query($sql);
+    if ($link->affected_rows>0) {
+        return true;
+    }else{
+        return false;
+    }
+}
