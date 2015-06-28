@@ -99,6 +99,11 @@ function insert_contributions($link,$string,$file_id){
                                 VALUES ('$email','$file_id')";
         mysqli_query($link, $sql) or die(mysqli_error($link));
     }
+    if ($link->affected_rows>0) {
+        return $link->affected_rows;
+    }else{
+        return 0;
+    }
 
 }
 /*
@@ -226,5 +231,49 @@ function updateService($link,$id,$service_name,$service_type,$website,$descripti
         return true;
     }else{
         return false;
+    }
+}
+
+function select_contributors($link,$file_id){
+    $sql = "SELECT * FROM contributions WHERE file_id='$file_id'";
+    $result = $link->query($sql);
+    return $result;
+}
+
+function contributors_to_string($result){
+    $string= "";
+    if ($result){
+        while ($row = mysqli_fetch_assoc($result)){
+            $string = $string .$row['con_email'].',';
+        }
+    }else{
+        return false;
+    }
+    return $string;
+}
+
+function updateFile($link,$id,$creator,$title,$service_name,$subject,$description,$c_list){
+    $service_id = get_service_id_by_name($link,$service_name);
+    $sql = "UPDATE files SET creator='$creator' ,  title='$title' ,  service_id='$service_id' , subject='$subject'  ,  description='$description'  WHERE file_id='$id'";
+
+    $link->query($sql);
+
+    $affected_rows = deleteContributions($link,$id);
+    $affected_rows += insert_contributions($link,$c_list,$id);
+
+    if ($link->affected_rows + $affected_rows>0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function deleteContributions($link,$file_id){
+    $sql = "DELETE FROM contributions WHERE file_id='$file_id'";
+    $link->query($sql);
+    if ($link->affected_rows>0) {
+        return $link->affected_rows;
+    }else{
+        return 0;
     }
 }

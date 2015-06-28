@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-
 <?php include_once('includes/kyrFun.php') ?>
-
-=======
-<?php include_once('includes/kyrFun.php') ?>
->>>>>>> origin/master
 <div class="container">
 <div id='cssmenu' >
 <ul>

@@ -8,11 +8,8 @@
 global $link;
 include("includes/connect.php");
 include_once 'includes/ArizFun.php';
-
 $result = select_all_files($link);
-
 ?>
-
     <div class="table-responsive" style="width: auto">
         <table class="table">
             <tr>
@@ -22,14 +19,13 @@ $result = select_all_files($link);
                 <td>Ημερομηνία</td>
                 <td></td>
             </tr>
-
 <?php
     while ($row = $result->fetch_assoc()) {
         $dir = dirname(dirname($row["file"]));
         $dir = $row["file"];
         echo '
             <tr>
-                <td><a href="viewFilesDetails.php?temp=' . $row['file_id'] . '">' . $row['title'] . '</a></td>
+                <td><a href="viewFilesDetails.php?id=' . $row['file_id'] . '">' . $row['title'] . '</a></td>
                 <td>' . $row["creator"] . '</td>
                 <td>' . $row["subject"] . '</td>
                 <td>' . $row["date"] . '</td>

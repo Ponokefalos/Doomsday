@@ -66,7 +66,6 @@ echo $id;
                         <select  name="nomos">
                             <script language="javascript">
                                 var nomos = '<?php echo $service['nomos'];?>';
-                                alert(nomos);
                                 var states = new Array('Agion Oros', 'Achaia', 'Aitolia kai Akarmania', 'Argolis', 'Arkadia', 'Arta', 'Attiki', 'Chalkidiki', 'Chanion', 'Chios', 'Dodekanisos', 'Drama', 'Evros', 'Evrytania', 'Evvoia', 'Florina', 'Fokidos', 'Fthiotis', 'Grevena', 'Ileia', 'Imathia', 'Ioannina', 'Irakleion', 'Karditsa', 'Kastoria', 'Kavala', 'Kefallinia', 'Kerkyra', 'Kilkis', 'Korinthia', 'Kozani', 'Kyklades', 'Lakonia', 'Larisa', 'Lasithi', 'Lefkas', 'Lesvos', 'Magnisia', 'Messinia', 'Pella', 'Pieria', 'Preveza', 'Rethynnis', 'Rodopi', 'Samos', 'Serrai', 'Thesprotia', 'Thessaloniki', 'Trikala', 'Voiotia', 'Xanthi', 'Zakynthos');
                                 for (var hi = 0; hi < states.length; hi++) {
                                     if (nomos==states[hi]){
