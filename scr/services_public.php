@@ -34,7 +34,7 @@ include ('includes/connect.php');
 
 <body>
 
-<div class="container marketing shadowStyle">
+<div class="container marketing">
 
     <div class="head_title">
         <p>
@@ -49,22 +49,7 @@ include ('includes/connect.php');
     <br><br><br>
 
     <div class="col-xs-12" id="Search_Form">
-        <form class="form-horizontal">
-            <div class="form-group">
-                <p>Συμπληρώστε τα παρακάτω πεδία για αναζήτηση</p>
-
-                <div class="col-sm-4 col-xs-4">
-                    <input type="text" class="form-control" name="search_name" id="search_name"
-                           autocomplete="off" placeholder="ονομα επιχείρησης">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-4 col-xs-4">
-                    <button type="submit" name="login" class="btn btn-primary">Αναζήτηση</button>
-                </div>
-            </div>
-        </form>
+        <?php include ('includes/search.php')?>
     </div>
 
    <?php include('includes/services_table.php')?>

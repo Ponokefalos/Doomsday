@@ -29,7 +29,7 @@ echo $id;
     ?>
 </head>
 <body>
-<div class="container marketing shadowStyle">
+<div class="container marketing">
     <div class="head_title">
         <div class="addNewElement">
             <button onclick="location.href ='editServices.php?id=<?php echo $service['service_id']?>' " ; type="submit" class="btn btn-primary">-> Επεξεργασία

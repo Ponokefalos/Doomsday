@@ -12,24 +12,30 @@
     <link href="../css/globalShadowBoxStyle.css" rel="stylesheet">
 </head>
 <body>
-<div class="col-xs-12" id="Search_Form">
-    <form class="form-horizontal">
+<div class="" id="Search_Form">
+    <p>Συμπληρώστε τα παρακάτω πεδία για αναζήτηση</p>
+    <form class="form-inline">
         <div class="form-group">
-            <p>Συμπληρώστε τα παρακάτω πεδία για αναζήτηση</p>
-            <div class="col-sm-4 col-xs-4">
+
+            <div class=" col-xs-3">
                 <input type="text" class="form-control" name="search_query" id="search_query"
-                       autocomplete="off" placeholder="search shit">
+                       autocomplete="off" placeholder="Αναζήτηση">
             </div>
         </div>
-        <select class="form-control" name="search_type" id="search_type">
-            <option>Files</option>
-            <option>Services</option>
-        </select>
         <div class="form-group">
+        <div class=" col-xs-2">
+            <select class="form-control" name="search_type" id="search_type">
+                <option>Files</option>
+                <option>Services</option>
+            </select>
+
         </div>
+        </div>
+        <input type="button" class="btn btn-primary"  onClick="myFunction()" value="Αναζήτηση">
+
     </form>
-        <input type="button"  onClick="myFunction()" value="gooby pls">
-    <script >
+
+    <script>
         function myFunction() {
             var q = document.getElementById("search_query").value;
             var s = document.getElementById("search_type");

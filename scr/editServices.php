@@ -24,7 +24,7 @@ echo $id;
     ?>
 </head>
 <body>
-<div class="container marketing shadowStyle">
+<div class="container marketing">
     <div class="head_title">
         <p><h3><i><?php echo $service['service_name']?></i></h3></p>
         <hr class="featurette-divider">

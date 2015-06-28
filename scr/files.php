@@ -25,7 +25,7 @@
 
 <body>
 
-<div class="container marketing shadowStyle">
+<div class="container marketing">
 
     <div class="head_title">
         <p>

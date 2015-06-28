@@ -23,7 +23,7 @@
 
 <body>
 
-<div class="container marketing shadowStyle">
+<div class="container marketing">
 
     <p> Καλώς ήρθατε στο Σύστημα Καταχώρησης Υπηρησιών</p>
 

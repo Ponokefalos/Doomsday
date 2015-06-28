@@ -16,7 +16,7 @@
     ?>
 </head>
 <body>
-<div class="container marketing shadowStyle">
+<div class="container marketing">
     <div class="head_title">
         <p>
         <div class="addNewElement">
@@ -30,18 +30,7 @@
     <br><br><br>
     <div class="container " id="Search_Form">
         <form class="form-horizontal">
-            <div class="form-group">
-                <p>Συμπληρώστε τα παρακάτω πεδία για αναζήτηση</p>
-                <div class="col-sm-4 col-xs-4">
-                    <input type="text" class="form-control" name="username" id="username"
-                           autocomplete="off" placeholder="ονομα επιχείρησης">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-4 col-xs-4">
-                    <button type="submit" name="login" class="btn btn-primary">Αναζήτηση</button>
-                </div>
-            </div>
+
             <div class="row">
                 <p>Επιλέξτε έναν από τους παρακάτω τύπους επιχειρήσεων</p>
                 <div class="col-md-3">

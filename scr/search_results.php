@@ -28,7 +28,7 @@
     ?>
 </head>
 <body>
-<div class="container marketing shadowStyle">
+<div class="container marketing">
     <div class="head_title col-xs-9">
         <p><h3><i>Αποτελέσματα για <?php echo $query; ?></i></h3></p>
         <hr class="featurette-divider">

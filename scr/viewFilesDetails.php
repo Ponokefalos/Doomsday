@@ -40,7 +40,7 @@ $file_dir=select_all_files($link);
     ?>
 </head>
 <body>
-<div class="container marketing shadowStyle">
+<div class="container marketing">
     <div class="head_title">
         <div class="addNewElement">
             <button onclick="location.href ='editFiles.php?id=<?php echo $files['file_id']?>' " ; type="submit" class="btn btn-primary">-> Επεξεργασία

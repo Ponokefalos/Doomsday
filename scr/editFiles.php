@@ -40,7 +40,7 @@ $contributors = contributors_to_string($contributors);
     ?>
 </head>
 <body>
-<div class="container marketing shadowStyle">
+<div class="container marketing">
     <div class="head_title">
         <p><h3><i><?php echo $files['title'] ?></i></h3></p>
         <hr class="featurette-divider">
