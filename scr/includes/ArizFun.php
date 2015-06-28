@@ -171,7 +171,6 @@ function array2csv(array &$array){
     }
     fclose($df);
     exit();
-
 }
 
 
@@ -185,10 +184,8 @@ function array2csv(array &$array){
     }
 
 function download_send_headers($filename) {
-
     header("Content-Type: text/csv; charset=utf-8");
     header("Content-Disposition: attachment; filename=$filename");
-// Disable caching
     header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1
     header("Pragma: no-cache"); // HTTP 1.0
     header("Expires: 0"); // Proxies
@@ -217,5 +214,17 @@ description LIKE "%'.$query.'%" ||date LIKE "%'.$query.'%"';
         return $result;
     } else {
         return null;
+    }
+}
+
+function updateService($link,$id,$service_name,$service_type,$website,$description,
+                         $doy,$nomos,$city,$r_name,$r_surname,$r_tel,$r_email){
+    $sql = "UPDATE services SET service_name='$service_name' ,  service_type='$service_type' ,  website='$website' , description='$description'  ,  doy='$doy' ,  nomos='$nomos' ,  city='$city' ,  r_name='$r_name' ,  r_surname='$r_surname' , r_tel='$r_tel' ,  r_email='$r_email' WHERE service_id='$id'";
+    
+    $link->query($sql);
+    if ($link->affected_rows>0) {
+        return true;
+    }else{
+        return false;
     }
 }

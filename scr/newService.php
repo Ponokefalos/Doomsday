@@ -59,7 +59,6 @@
                             <option>Δημόσιος Τομέας</option>
                             <option>Ιδιωτικός Τομέας</option>
                             <option>Πανεπιστημιακός Φορέας</option>
-
                         </select>
                     </div>
                 </div>
@@ -112,16 +111,13 @@
                                placeholder="π.χ Θεσσαλονίκη" required="true">
                     </div>
                 </div>
-
                 <div class="head_title">
                     <p>
-
                     <h3><i>Στοιχεία Αντιπρωσούπου</i></h3></p>
                     <hr class="featurette-divider">
                 </div>
                 <div class="form-group">
                     <p  class="col-xs-2 control-label">Όνομα</p>
-
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="r_name" id="r_name"
                                placeholder="Όνομα Αντιπρωσούπου" required="true">
@@ -129,7 +125,6 @@
                 </div>
                 <div class="form-group">
                     <p  class="col-xs-2 control-label">Επίθετο</p>
-
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="r_surname" id="r_surname"
                                placeholder="Επίθετο" required="true">
