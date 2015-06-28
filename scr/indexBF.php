@@ -63,7 +63,7 @@
     <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br>
 </div>
 
-<?php include_once('includes/footer.php')?>
+<?php include_once('includes/footer.php') ?>
 </body>
 
 
@@ -77,7 +77,7 @@
  * Date: 31/5/2015
  * Time: 5:12 μμ
  */
-session_start();
+/*session_start();*/
 
 
 include_once('includes/kyrFun.php');
@@ -111,8 +111,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['login'])) {
         $_SESSION['username'] = $row['username'];
         $_SESSION['name'] = $row['name'];
         $_SESSION['surname'] = $row['surname'];
-        header("Refresh:0");
+        $_SESSION['loggedIn'] = true;
         echo 'MPIKAAAAAAAAAAAAAAAAAA';
+        header("Location:index.php");
+
         exit();
 
 

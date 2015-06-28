@@ -179,6 +179,55 @@ function return_Contributors_Given_Id ($link,$id){
     }
 }
 
+function delete_from_login($id, $link)
+{
+    $sql = "DELETE FROM logins WHERE user_id=$id";
+    $result = mysqli_query($link, $sql);
+
+    if ($result) {
+        mysqli_commit($link);
+        showAlertDialog("Επιτυχής διαγραφή");
+        return true;
+    } else {
+        mysqli_rollback($link);
+        showAlertDialog("Αδυναμία διαγγραφής στην ιστοσελίδα. Παρακαλώ προσπαθήστε αργότερα.");
+        return false;
+    }
+}
+function insert_to_logins($id, $date, $link)
+{
+    $sql = "insert into logins
+                             (
+                                 user_id,
+                                 date_since
+                             )
+                             values
+                             (
+                                 '$id',
+                                 '$date'
+                             )";
+
+    $result = mysqli_query($link, $sql);
+
+    if (mysqli_errno($link) == 1062) {
+        showAlertDialog(mysqli_affected_rows($link));
+        $sql = "update logins set date_since='$date' where user_id='$id'";
+        $result = mysqli_query($link, $sql);
+    }
+
+    if (!$result) {
+        die('Could not update data: ' . mysqli_errno($link));
+    }
+
+    if ($result) {
+        mysqli_commit($link);
+        return true;
+    } else {
+        mysqli_rollback($link);
+        return false;
+    }
+}
+
 
 
 
