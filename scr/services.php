@@ -25,15 +25,8 @@
         </div>
         <h3><i>Υπηρησίες</i></h3></p>
         <hr class="featurette-divider">
-<<<<<<< HEAD
-
-    </div>
-    <p class="infoTxt"> Παρακάτω βλέπετε όλες τις Υπηρησίες / Επιχειρήσης που φιλοξενούνται στην σελίδα</p>
-
-=======
         <p class="infoTxt"> Παρακάτω βλέπετε όλες τις Υπηρησίες / Επιχειρήσης που φιλοξενούνται στην σελίδα</p>
     </div>
->>>>>>> origin/master
     <br><br><br>
     <div class="container " id="Search_Form">
         <form class="form-horizontal">
