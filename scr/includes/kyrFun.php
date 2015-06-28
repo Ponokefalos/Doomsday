@@ -63,10 +63,7 @@ function getCurrentDate()
  * onoma-epitheto Antiproswpou
  * Hmerominia Eisagwgis tis Yphresias sto Systima
  */
-function returnt_Info_To_Show_On_Tables($link)
-{
 
-}
 
 function return_Service_Given_Type($link, $service_type)
 {
@@ -99,14 +96,89 @@ function return_Service_Given_Id($link,$id){
     $result = mysqli_query($link,$query);
     $count = mysqli_num_rows($result);
     if($count>0){
-        $auction = mysqli_fetch_array($result);
-        return $auction;
+        $service = mysqli_fetch_array($result);
+        return $service;
     }else
     {
         echo 'no Services to return KF97';
     }
 
 }
+
+function return_File_By_Id ($link,$id){
+    $query = "select *from files WHERE  file_id='$id'";
+    $result=mysqli_query($link,$query);
+    $count = mysqli_num_rows($result);
+
+    if($count>0){
+        $file=mysqli_fetch_array($result);
+        return $file;
+    }else{
+        echo 'no files found to return KF111';
+    }
+}
+
+function return_Service_Name_From_File_Id($link,$serviceId){
+    $query = "select service_name from services where service_id='$serviceId'";
+    $result=mysqli_query($link,$query);
+    $count=mysqli_num_rows($result);
+
+    if($count > 0){
+        $service_name=mysqli_fetch_array($result);
+        return $service_name;
+    }
+    else {
+        echo 'nothing to return KF124';
+    }
+}
+
+
+
+/** Checks if a user exist on database
+ * @param $name
+ * @param $link
+ * @return bool
+ */
+function checkIfUserNameExists($name, $link)
+{
+    $sql = "SELECT username "
+        . "FROM users WHERE username='$name' ";
+
+    $result = mysqli_query($link, $sql) or die(mysqli_error($link));
+    $count = mysqli_num_rows($result);
+
+    if ($count >= 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function select_users_fromDB ($link,$username,$password){
+    $query="select * from users where username='$username' AND password='$password'";
+    $result = mysqli_query($link, $query) or die(mysqli_error($link));
+    $count=mysqli_num_rows($result);
+    if($count==1){
+        $row=mysqli_fetch_assoc($result);
+        return $row;
+    }
+
+}
+
+function return_Contributors_Given_Id ($link,$id){
+    $query = "select *from contributions WHERE  file_id='$id'";
+    $result=mysqli_query($link,$query);
+    $count = mysqli_num_rows($result);
+
+    if($count > 0){
+        $contr=mysqli_fetch_array($result);
+        return $contr;
+    }
+    else {
+        echo 'nothing to return in KF165 contr';
+    }
+}
+
 
 
 

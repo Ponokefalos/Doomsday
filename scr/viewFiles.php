@@ -6,9 +6,11 @@
  * Time: 00:40
  */
 global $link;
-include ("includes/connect.php");
+include("includes/connect.php");
 include_once 'includes/ArizFun.php';
+
 $result = select_all_files($link);
+
 ?>
 
     <div class="table-responsive" style="width: auto">
@@ -27,11 +29,11 @@ $result = select_all_files($link);
         $dir = $row["file"];
         echo '
             <tr>
+                <td><a href="viewFilesDetails.php?temp=' . $row['file_id'] . '">' . $row['title'] . '</a></td>
                 <td>' . $row["creator"] . '</td>
-                <td>' . $row["title"] . '</td>
                 <td>' . $row["subject"] . '</td>
                 <td>' . $row["date"] . '</td>
-                <td><a href="'.$dir.'"Επεξεργασία</a>Κατέβασμα .zip</td>
+                <td><a href="' . $dir . '"Επεξεργασία</a>Κατέβασμα .zip</td>
                 </tr>';
     }
     echo '</table>

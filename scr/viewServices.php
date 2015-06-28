@@ -93,37 +93,37 @@ echo $id;
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Δ.Ο.Υ</p>
+                        <p class="col-xs-4 control-label">Δ.Ο.Υ:</p>
 
                         <p class="col-xs-8 control-label"><?php echo $service['doy'] ?></p>
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Νομός</p>
+                        <p class="col-xs-4 control-label">Νομός:</p>
 
                         <p class="col-xs-8 control-label"><?php echo $service['nomos'] ?></p>
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Πόλη</p>
+                        <p class="col-xs-4 control-label">Πόλη:</p>
 
                         <p class="col-xs-8 control-label"><?php echo $service['city'] ?></p>
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Περιγραφή</p>
+                        <p class="col-xs-4 control-label">Περιγραφή:</p>
 
                         <p class="col-xs-8 control-label"><?php echo $service['description'] ?></p>
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Χώρα</p>
+                        <p class="col-xs-4 control-label">Χώρα:</p>
 
                         <p class="col-xs-8 control-label">-</p>
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Περιγραφή</p>
+                        <p class="col-xs-4 control-label">Περιγραφή:</p>
 
                         <p class="col-xs-8 control-label"><?php echo $service['description'] ?></p>
                     </div>
@@ -138,45 +138,45 @@ echo $id;
                     </div>
 
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Όνομα</p>
+                        <p class="col-xs-4 control-label">Όνομα:</p>
 
                         <p class="col-xs-4 control-label"><?php echo $service['r_name'] ?></p>
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Επίθετο</p>
+                        <p class="col-xs-4 control-label">Επίθετο:</p>
 
                         <p class="col-xs-4 control-label"><?php echo $service['r_surname'] ?></p>
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">Τηλέφωνο Επικοινωνίας</p>
+                        <p class="col-xs-4 control-label">Τηλέφωνο Επικοινωνίας:</p>
 
                         <p class="col-xs-4 control-label"><?php echo $service['r_tel'] ?></p>
                     </div>
                     <hr class="featurette-divider">
                     <div class="form-group">
-                        <p class="col-xs-4 control-label">E-mail</p>
+                        <p class="col-xs-4 control-label">E-mail:</p>
 
                         <p class="col-xs-4 control-label"><?php echo $service['r_email'] ?></p>
                     </div>
                     <hr class="featurette-divider">
 
+                    <div class="head_title">
+                        <p>
+                            <br>
+                        <h4><i>Έγγραφα Υπηρεσίας</i></h4></p>
 
+                    </div>
 
+                    <?php include ('viewFiles.php') ?>
                 </form>
             </div>
-
         </div>
-
-
     </div>
 </div>
-
 <?php include('includes/footer.php') ?>
 </body>
-
-
 </html>
 
 

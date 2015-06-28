@@ -46,7 +46,7 @@ footer {
     font-family: myFirstFont;
     src: url("../fonts/Roboto-Regular.ttf");
 
-    font-size: 17px;
+    font-size: 16px;
 }
 
 #navbar li:hover {
@@ -64,7 +64,7 @@ footer {
 
 p {
     font-family: myFirstFont;
-    font-size: 17px;
+    font-size: 15px;
 }
 
 hr {

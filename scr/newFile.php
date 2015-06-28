@@ -48,7 +48,7 @@
             <form name="file_form" class="form-horizontal" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <p class="col-xs-2 control-label">Δημηουργός</p>
+                    <p class="col-xs-2 control-label">Δημιουργός</p>
 
                     <div class="col-sm-4 col-xs-4">
                         <input type="text" class="form-control" name="creator" id="creator"
