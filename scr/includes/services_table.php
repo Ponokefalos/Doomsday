@@ -12,6 +12,7 @@ global $link;
 global $result;
 global $numOfServices;
 ?>
+<br><br>
 <div>
     <table class="table table-hover">
         <tbody>
@@ -52,7 +53,7 @@ global $numOfServices;
                 if ($row['website'] == '') {
                     echo '<td>-</td>';
                 } else {
-                    echo ' <td><a href="http://.'.$row['website'].'"</a>'.$row['website'].'</td>';
+                    echo ' <td><a href="http://'.$row['website'].'"</a>'.$row['website'].'</td>';
                 }
 
 

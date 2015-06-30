@@ -45,19 +45,19 @@ include ('includes/connect.php');
 
     </div>
 
-    <p class="infoTxt"> Παρακάτω βλέπετε όλες τις Υπηρησίες / Επιχειρήσης που φιλοξενούνται στην σελίδα</p>
-    <br><br><br>
+    <p class="infoTxt"> Παρακάτω βλέπετε τις Δημόσιες Υπηρεσίες που φιλοξενούνται στην σελίδα</p>
+    <br><br>
 
     <div class="col-xs-12" id="Search_Form">
         <?php include ('includes/search.php')?>
     </div>
+    <p class="infoTxt">Για να δείτε περισσότερες πληροφορίες για την Υπηρεσία πατήστε στο όνομά της </p>
 
    <?php include('includes/services_table.php')?>
 
 
 
-    <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br> <br><br><br>
-    <br><br><br>
+
 
 
 

@@ -37,6 +37,11 @@
 
     <p>Επικοινωνίστε με τους υπεύθυνους της σελίδας, συμπληρώνοντας την παρακάτω φόρμα με τα στοιχεία σας.</p>
 
+   <pre> <p>
+        Εναλλακτικά επικοινωνήστε με τους developers
+	Βογιατζής Κυριάκος  		icsd11019@icsd.aegean.gr
+	Κοτζιάς Αριστείδης 		icsd11186@icsd.aegean.gr
+       </p></pre>
 
 
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
