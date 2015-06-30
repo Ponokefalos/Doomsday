@@ -100,7 +100,7 @@ $file_dir=select_all_files($link);
                     <hr class="featurette-divider">
                     <div class="form-group">
                         <p class="col-xs-4 control-label">Αρχείο:</p>
-                        <p class="col-xs-8 control-label"><?php echo '<a href="' . $dir . '"Κατέβασμα .zip</a>' ?> </p>
+                        <p class="col-xs-8 control-label"><?php echo '<a href="'.$files["file"].'" >Κατέβασμα .zip</a>' ?> </p>
                     </div>
                 </form>
             </div>
